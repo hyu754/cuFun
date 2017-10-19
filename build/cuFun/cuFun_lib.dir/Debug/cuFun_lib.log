@@ -1,0 +1,17 @@
+﻿  Building NVCC (Device) object cuFun/CMakeFiles/cuFun_lib.dir/source/Debug/cuFun_lib_generated_matrix.cu.obj
+  matrix.cu
+  
+  matrix.cu
+  
+  Building Custom Rule D:/GitHub/cuFun/cuFun/CMakeLists.txt
+  CMake is re-running because D:\GitHub\cuFun\build\cuFun\CMakeFiles\generate.stamp is out-of-date.
+    the file 'D:/GitHub/cuFun/build/cuFun/CMakeFiles/cuFun_lib.dir/source/cuFun_lib_generated_vector.cu.obj.depend'
+    is newer than 'D:\GitHub\cuFun\build\cuFun\CMakeFiles\generate.stamp.depend'
+    result='-1'
+  -- Configuring done
+  -- Generating done
+  -- Build files have been written to: D:/GitHub/cuFun/build
+  vector.cpp
+cuFun_lib_generated_matrix.cu.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+cuFun_lib_generated_dnnFun.cu.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+  cuFun_lib.vcxproj -> D:\GitHub\cuFun\build\cuFun\Debug\cuFun_lib.lib

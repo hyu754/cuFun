@@ -1,0 +1,7 @@
+﻿  test_cuMat.cpp
+D:\GitHub\cuFun\TEST\test_cuMat.cpp(22): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data
+D:\GitHub\cuFun\TEST\test_cuMat.cpp(32): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data
+D:\GitHub\cuFun\TEST\test_cuMat.cpp(37): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data
+D:\GitHub\cuFun\TEST\test_cuMat.cpp(49): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data
+D:\GitHub\cuFun\TEST\test_cuMat.cpp(96): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data
+  test_cuMat.vcxproj -> D:\GitHub\cuFun\build\TEST\Debug\test_cuMat.exe

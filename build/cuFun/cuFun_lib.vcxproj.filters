@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\GitHub\cuFun\cuFun\source\vector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\GitHub\cuFun\cuFun\source\dnnFun.cu" />
+    <CustomBuild Include="D:\GitHub\cuFun\cuFun\source\matrix.cu" />
+    <CustomBuild Include="D:\GitHub\cuFun\cuFun\source\vector.cu" />
+    <CustomBuild Include="D:\GitHub\cuFun\cuFun\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\GitHub\cuFun\cuFun\header\dnnFun.cuh">
+      <Filter>Headers</Filter>
+    </None>
+    <None Include="D:\GitHub\cuFun\cuFun\header\matrix.cuh">
+      <Filter>Headers</Filter>
+    </None>
+    <None Include="D:\GitHub\cuFun\cuFun\header\vector.cuh">
+      <Filter>Headers</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="D:\GitHub\cuFun\build\cuFun\CMakeFiles\cuFun_lib.dir\source\$(Configuration)\cuFun_lib_generated_dnnFun.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+    <Object Include="D:\GitHub\cuFun\build\cuFun\CMakeFiles\cuFun_lib.dir\source\$(Configuration)\cuFun_lib_generated_matrix.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+    <Object Include="D:\GitHub\cuFun\build\cuFun\CMakeFiles\cuFun_lib.dir\source\$(Configuration)\cuFun_lib_generated_vector.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{AAF7CB23-089C-39F1-8C6A-D5392D2AFD38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files">
+      <UniqueIdentifier>{E458CBA3-4906-3F94-A8A0-9469DFACF688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{3C766D05-4EBF-3858-9D22-2B9DDB5AB070}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
