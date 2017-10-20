@@ -1,50 +1,38 @@
-#include "matrix.cuh"
+#include "vector.cuh"
 
-//template<typename T>
-//void __global__ 
-//cuda_vectAdd_global(T * a, T * b, T* c, int n){
-//	int tid = blockIdx.x + blockIdx.x * blockDim.x;
-//	if (tid < n){
-//		c[tid]  = a[tid] +b[tid];
-//	}
-//}
 
-//template<typename T>
-//void cuda_vectAdd(T * a, T * b, T * c, int blocks, int threads, int n){
-//	cuda_vectAdd_global<T> << < blocks, threads >> > (a, b, c, n);
-//}
-//
-
+//Cuda addition function: a = b+c
 template<typename T>
 void __global__
-cuda_vectAdd_global(T * a, const T * b, const T* c, int n){
-	int tid = threadIdx.x + blockIdx.x * blockDim.x;
+cuda_vectAdd_global(T * a, const T * b, const T* c, size_t n){
+	size_t tid = threadIdx.x + blockIdx.x * blockDim.x;
 	if (tid < n){
 		a[tid] =b[tid]+c[tid];
 		
 	}
 }
 
+
+//Cuda addition function: a = a+b
 template<typename T>
 void __global__
-cuda_vectAdd_global(T * a, const T * b, int n){
-	int tid = threadIdx.x + blockIdx.x * blockDim.x;
+cuda_vectAdd_global(T * a, const T * b, size_t n){
+	size_t tid = threadIdx.x + blockIdx.x * blockDim.x;
 	if (tid < n){
 		a[tid] =a[tid] + b[tid];
 
 	}
 }
-//template<typename T>
-//void cuda_vectAdd(T * a, T * b, T * c, int blocks, int threads, int n){
-//	cuda_vectAdd_global<T> << < blocks, threads >> > (a, b, c, n);
-//}
 
-void cuda_vectAdd(float * a, const float * b, int blocks, int threads, int n){
+//Wrapper function for cuda_vectAdd_global
+void cuda_vectAdd(float * a, const float * b, const float * c, size_t blocks, size_t threads, size_t n){
+	cuda_vectAdd_global<float> << < blocks, threads >> > (a, b, c, n);
+
+}
+
+//Wrapper function for cuda_vectAdd_global
+void cuda_vectAdd(float * a, const float * b, size_t blocks, size_t threads, size_t n){
 	cuda_vectAdd_global<float> << < blocks, threads >> > (a, b, n);
 
 }
 
-void cuda_vectAdd(float * a,const float * b, const float * c, int blocks, int threads, int n){
-	cuda_vectAdd_global<float> << < blocks, threads >> > (a, b, c, n);
-	
-}

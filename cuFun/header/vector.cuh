@@ -11,7 +11,7 @@
 
 namespace cuFun
 {
-	namespace matFun
+	namespace cuMat
 	{
 		
 		
@@ -26,7 +26,7 @@ namespace cuFun
 
 		template<typename T>
 		struct _vect{
-			int length;
+			size_t length;
 			T *elements;
 
 		};
@@ -36,18 +36,18 @@ namespace cuFun
 		{
 		public:
 			vect(void){};
-			vect(int size){ 
+			vect(size_t size){ 
 				length_ = size; 
 				vector_host.length = size; 
 				vector_host.elements = new T[size]; 
-				for (int _i = 0; _i < size; _i++){
+				for (size_t _i = 0; _i < size; _i++){
 					vector_host.elements[_i] = (T)0;
 				}
 			};
-			vect(int size, T *input_vector){//Initialize host vector
+			vect(size_t size, T *input_vector){//Initialize host vector
 				vector_host.elements = new T[size];
 
-				for (int i = 0; i < size; i++){
+				for (size_t i = 0; i < size; i++){
 					vector_host.elements[i] = input_vector[i];
 				}
 				vector_host.length = size;
@@ -58,7 +58,7 @@ namespace cuFun
 
 
 			//initializes the vector
-			void initialize_vector(int size, T *input_vector);
+			//void initialize_vector(size_t size, T *input_vector);
 
 			//Allocate cuda memory and copy host to device
 			void host_to_device();
@@ -70,13 +70,13 @@ namespace cuFun
 			void device_to_host();
 
 			//Get length
-			int return_length(){ return length_; }
+			size_t return_length(){ return length_; }
 			
 			//Cuda add, both inputs will be vector vect<T> class objects
-			//vect<T> cudaVectAdd(vect<T> const vec_a, vect<T> const vect_b, int n);
+			//vect<T> cudaVectAdd(vect<T> const vec_a, vect<T> const vect_b, size_t n);
 	
-			//Return device pointer
-			T* return_device_pointer(){ return array_device; }
+			//Return device posize_ter
+			T* return_device_posize_ter(){ return array_device; }
 		
 			
 			//Array for host
@@ -84,10 +84,10 @@ namespace cuFun
 
 
 			//Returns the value at position indicated, note only for host 
-			T at(int _idx){ if (_idx < length_){ return vector_host.elements[_idx]; } else{ return 0; } }
+			T at(size_t _idx){ if (_idx < length_){ return vector_host.elements[_idx]; } else{ return 0; } }
 		private:
 			//
-			int length_;
+			size_t length_;
 
 
 			//Array pointer for device
@@ -96,14 +96,14 @@ namespace cuFun
 			//Print out operator
 			friend std::ostream& operator << (std::ostream& out, const  vect<T> & object){
 				out << "[";
-				int print_to = object.vector_host.length;
+				size_t prsize_t_to = object.vector_host.length;
 
-				//Set print limit
-				if (print_to > 10){
+				//Set prsize_t limit
+				if (prsize_t_to > 10){
 
-					print_to = 10;
+					prsize_t_to = 10;
 				}
-				for (int i = 0; i < print_to; i++){
+				for (size_t i = 0; i < prsize_t_to; i++){
 
 					out << object.vector_host.elements[i] << " ";
 				}
@@ -130,7 +130,7 @@ namespace cuFun
 }
 
 template<class T>
-void cuFun::matFun::vect<T>::allocate_cuda_memory(){
+void cuFun::cuMat::vect<T>::allocate_cuda_memory(){
 	size_t length_ = vector_host.length;
 	//first allocate cuda vector
 	cudaMalloc((void**)&array_device, sizeof(T)*length_);
@@ -139,7 +139,7 @@ void cuFun::matFun::vect<T>::allocate_cuda_memory(){
 }
 
 template<class T>
-void cuFun::matFun::vect<T>::host_to_device(){
+void cuFun::cuMat::vect<T>::host_to_device(){
 	size_t length_ = vector_host.length;
 	//first allocate cuda vector
 	allocate_cuda_memory();
@@ -153,7 +153,7 @@ void cuFun::matFun::vect<T>::host_to_device(){
 }
 
 template<class T>
-void cuFun::matFun::vect<T>::device_to_host(){
+void cuFun::cuMat::vect<T>::device_to_host(){
 
 	size_t length_ = vector_host.length;
 
@@ -163,22 +163,24 @@ void cuFun::matFun::vect<T>::device_to_host(){
 }
 
 template<class T>
-cuFun::matFun::vect<T>::~vect(){
+cuFun::cuMat::vect<T>::~vect(){
 
 	if (array_device != NULL)
 		cudaFree(array_device);
+
+
 }
 
 
 template<typename T>
-void cpu_VectAdd(cuFun::matFun::vect<T>  &a, cuFun::matFun::vect<T>   b, cuFun::matFun::vect<T>    c){
+void cpuVectAdd(cuFun::cuMat::vect<T>  &a, cuFun::cuMat::vect<T>   b, cuFun::cuMat::vect<T>    c){
 	/*if (b.vector_host.length != c.vector_host.length){
 	std::cout << "Error vectors must be the same size " << std::endl;
 	abort();
 	}*/
 
-	int  _flength = b.return_length();
-	for (int i = 0; i < _flength; i++){
+	size_t  _length = b.return_length();
+	for (size_t i = 0; i < _length; i++){
 		a.vector_host.elements[i] = b.vector_host.elements[i] + c.vector_host.elements[i];
 	}
 
@@ -186,15 +188,15 @@ void cpu_VectAdd(cuFun::matFun::vect<T>  &a, cuFun::matFun::vect<T>   b, cuFun::
 
 
 template<typename T>
-void cudaVectAdd(cuFun::matFun::vect<T> &vec_a, cuFun::matFun::vect<T> vec_b, int n){
+void cudaVectAdd(cuFun::cuMat::vect<T> &vec_a, cuFun::cuMat::vect<T> vec_b, size_t n){
 
-	int threads = 1024;
-	int blocks = (threads + n + 1) / threads;
+	size_t threads = 1024;
+	size_t blocks = ((threads + n + 1) / threads);
 
 
 
-	T * a_ptr = vec_a.return_device_pointer();
-	T * b_ptr = vec_b.return_device_pointer();
+	T * a_ptr = vec_a.return_device_posize_ter();
+	T * b_ptr = vec_b.return_device_posize_ter();
 
 
 	cuda_vectAdd(a_ptr, b_ptr, blocks, threads, n);
@@ -205,17 +207,17 @@ void cudaVectAdd(cuFun::matFun::vect<T> &vec_a, cuFun::matFun::vect<T> vec_b, in
 }
 
 template<typename T>
-void cudaVectAdd(cuFun::matFun::vect<T> &vec_a, cuFun::matFun::vect<T> vec_b, cuFun::matFun::vect<T> vec_c, int n){
+void cudaVectAdd(cuFun::cuMat::vect<T> &vec_a, cuFun::cuMat::vect<T> vec_b, cuFun::cuMat::vect<T> vec_c, size_t n){
 
-	int threads = 1024;
-	int blocks = (threads + n +1 ) / threads;
+	size_t threads = 1024;
+	size_t blocks = (threads + n + 1) / threads;
 
 
 
-	T * a_ptr = vec_a.return_device_pointer();
-	T * b_ptr = vec_b.return_device_pointer();
+	T * a_ptr = vec_a.return_device_posize_ter();
+	T * b_ptr = vec_b.return_device_posize_ter();
 
-	T * c_ptr = vec_b.return_device_pointer();
+	T * c_ptr = vec_b.return_device_posize_ter();
 
 
 	cuda_vectAdd(a_ptr, b_ptr, c_ptr, blocks, threads, n);
@@ -228,10 +230,10 @@ void cudaVectAdd(cuFun::matFun::vect<T> &vec_a, cuFun::matFun::vect<T> vec_b, cu
 
 
 template<typename T>
-void cudaVectAdd_cublas(cublasHandle_t handle, cuFun::matFun::vect<T> &vec_a, cuFun::matFun::vect<T> vec_b, int n){
+void cudaVectAdd_cublas(cublasHandle_t handle, cuFun::cuMat::vect<T> &vec_a, cuFun::cuMat::vect<T> vec_b, size_t n){
 
-	T * a_ptr = vec_a.return_device_pointer();
-	T * b_ptr = vec_b.return_device_pointer();
+	T * a_ptr = vec_a.return_device_posize_ter();
+	T * b_ptr = vec_b.return_device_posize_ter();
 
 	const float alpha = 1.0f;
 	
@@ -247,15 +249,15 @@ Vector add routines
 //CUDA
 template<typename T>
 void __global__
-cuda_vectAdd_global(T * a, const T * b, int n);
+cuda_vectAdd_global(T * a, const T * b, size_t n);
 
 template<typename T>
 void __global__
-cuda_vectAdd_global(T * a, const T * b, const T* c, int n);
+cuda_vectAdd_global(T * a, const T * b, const T* c, size_t n);
 
 //Wrappers
-void cuda_vectAdd(float * a, const float * b, int blocks, int threads, int n);
-void cuda_vectAdd(float * a, const float * b, const float * c, int blocks, int threads, int n);
+void cuda_vectAdd(float * a, const float * b, size_t blocks, size_t threads, size_t n);
+void cuda_vectAdd(float * a, const float * b, const float * c, size_t blocks, size_t threads, size_t n);
 
 
 #endif #H_VECTOR_HEADER

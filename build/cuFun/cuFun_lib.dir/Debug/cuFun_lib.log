@@ -3,14 +3,15 @@
   
   matrix.cu
   
-  Building Custom Rule D:/GitHub/cuFun/cuFun/CMakeLists.txt
-  CMake is re-running because D:\GitHub\cuFun\build\cuFun\CMakeFiles\generate.stamp is out-of-date.
-    the file 'D:/GitHub/cuFun/build/cuFun/CMakeFiles/cuFun_lib.dir/source/cuFun_lib_generated_vector.cu.obj.depend'
-    is newer than 'D:\GitHub\cuFun\build\cuFun\CMakeFiles\generate.stamp.depend'
-    result='-1'
-  -- Configuring done
-  -- Generating done
-  -- Build files have been written to: D:/GitHub/cuFun/build
+  Building NVCC (Device) object cuFun/CMakeFiles/cuFun_lib.dir/source/Debug/cuFun_lib_generated_vector.cu.obj
+  vector.cu
+  
+  vector.cu
+  
+D:/GitHub/cuFun/cuFun/source/vector.cu(29): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
+  
+D:/GitHub/cuFun/cuFun/source/vector.cu(35): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
+  
   vector.cpp
 cuFun_lib_generated_matrix.cu.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
 cuFun_lib_generated_dnnFun.cu.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
