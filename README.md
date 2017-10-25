@@ -1,8 +1,1 @@
-
-```bash
-git clone https://github.com/leegao/readme2tex
-cd readme2tex
-python setup.py develop
-```
-
-<p align="center"><img src="svgs/ecc93e93794148c216d9fa0554944081.svg?invert_in_darkmode" align=middle width=8.656692pt height=7.051176pt/></p>
+<p align="center"><img alt="$$&#10;\frac{n!}{k!(n-k)!} = {n \choose k}&#10;$$" src="svgs/32737e0a8d5a4cf32ba3ab1b74902ab7.svg" align=middle width="127.89183pt" height="39.30498pt"/></p>
