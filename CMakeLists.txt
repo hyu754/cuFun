@@ -10,13 +10,13 @@ include_directories(${CMAKE_SOURCE_DIR}/cuFun/header/)
 #Include cuda libraries
 find_package(CUDA REQUIRED)
 include_directories(${CUDA_TOOLKIT_ROOT_DIR}/include/)
-link_directories(${CUDA_TOOLKIT_ROOT_DIR}/lib)
+link_directories(${CUDA_TOOLKIT_ROOT_DIR}/lib/x64)
 
 #Include eigen
 include_directories(${CMAKE_SOURCE_DIR}/include/Eigen/)
 
 
-set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS} --gpu-architecture sm_50)
+set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS} --gpu-architecture sm_61)
 
 
 add_subdirectory(cuFun)

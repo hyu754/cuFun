@@ -2,47 +2,47 @@
 #include <stdlib.h>
 #include "vector.cuh"
 #include "matrix.cuh"
-
 #include <ctime>
 
+
+
 //Range of test functions
-bool test_vector();
-bool test_matrix();
+bool test_vector(size_t n,size_t iterations);
+bool test_matrix(size_t n, size_t iterations);
 int main(){
 
 	/*
 	CHECK VECTOR
 	*/
-	bool vector_result = test_vector();
+	bool vector_result = test_vector(
+		100000,//Length
+		10000 // Number of iteration
+		);
 
 	if (vector_result == true){
-		std::cout << "Vector test : TRUE"<< std::endl;
+		std::cout << "Vector test CPU = GPU: TRUE"<< std::endl;
 	}
 	else{
-		std::cout << "Vector test : FALSE" << std::endl;
+		std::cout << "Vector test CPU = GPU: FALSE" << std::endl;
 	}
 	
 	/*
 	CHECK MATRIX
 	*/
-
-
-
-
-	bool matrix_result = test_matrix();
+	bool matrix_result = test_matrix(100,200);
 	
 	return 0;
 }
 
 
 
-bool test_vector(){
+bool test_vector(size_t n, size_t num_iterations){
 	//set random seed
 	srand(1);
 
 	//Make dummy vector
 	float *rand_vec;
-	size_t n = 10000;
+	
 
 	rand_vec = new float[n];
 	for (size_t i = 0; i < n; i++){
@@ -55,7 +55,7 @@ bool test_vector(){
 
 	//std::cout <<(vect_f);
 
-	int num_iterations = 1;
+	
 	//CUDA SPEED 
 	std::cout << "Starting cuda test ... " << std::endl;
 
@@ -115,13 +115,9 @@ bool test_vector(){
 	//std::cout << "CUBLAS time : " << (float)(end_cublas - start_cublas) / CLOCKS_PER_SEC << std::endl;
 	std::cout << "CUDA time : " << (float)(end_cuda - start_cuda) / CLOCKS_PER_SEC << std::endl;
 	std::cout << "CPU time : " << (float)(end_CPU - start_CPU) / CLOCKS_PER_SEC << std::endl;
-	//std::cout << answer_CPU.at(0) << std::endl;
-	std::cout << answer_CPU << std::endl;
-	std::cout << answer_GPU << std::endl;
 
 
-
-	//Check if CPU == GPU, I assume this to be accurate check
+	//Check if CPU == GPU, one necessary assumption for correct implementation
 	bool vector_correct = true;
 	for (size_t i = 0; i < n; i++){
 		if (answer_CPU.at(i) != answer_GPU.at(i)){
@@ -133,20 +129,36 @@ bool test_vector(){
 	return vector_correct;
 }
 
-bool test_matrix(){
+bool test_matrix(size_t n = 100 ,size_t iter = 200){
 
-	cuFun::cuMat::mat<float> m0(10, 10, cuFun::cuMat::initial_type::ZERO);
-	cuFun::cuMat::mat<float> m_rand(10, 10, cuFun::cuMat::initial_type::RAND);
-	cuFun::cuMat::mat<float> m_result(10, 9, cuFun::cuMat::initial_type::ZERO);
-
-
-	cpuMatMul(m_result, m_rand, m_rand);
-
+	cuFun::cuMat::mat<float> cpu_result(n, n, cuFun::cuMat::initial_type::ZERO);
+	cuFun::cuMat::mat<float> gpu_result(n, n, cuFun::cuMat::initial_type::ZERO);
+	cuFun::cuMat::mat<float> a(n, n, cuFun::cuMat::initial_type::RAND);
+	cuFun::cuMat::mat<float> b(n, n, cuFun::cuMat::initial_type::RAND);
+	a.host_to_device();
+	b.host_to_device();
 	
-	std::cout << m0 << std::endl;
-	std::cout << m_rand << std::endl;
 
-	std::cout << m_result << std::endl;
+
+	clock_t start_CPU = std::clock();
+	for (int _i = 0; _i < iter; _i++)
+		cpuMatAdd(cpu_result, cpu_result, b);
+	clock_t  end_CPU = std::clock();
+
+	clock_t  start_cuda = std::clock();
+	gpu_result.allocate_cuda_memory();
+	for (int _i = 0; _i < iter; _i++)
+		cudaMatAdd(gpu_result, gpu_result, b);
+	gpu_result.device_to_host();
+	clock_t  end_cuda = std::clock();
+
+	std::cout << "CPU RESULT: " << std::endl << cpu_result;
+	std::cout << "GPU RESULT: " << std::endl << gpu_result;
+
+
+	//std::cout << "CUBLAS time : " << (float)(end_cublas - start_cublas) / CLOCKS_PER_SEC << std::endl;
+	std::cout << "CUDA time : " << (float)(end_cuda - start_cuda) / CLOCKS_PER_SEC << std::endl;
+	std::cout << "CPU time : " << (float)(end_CPU - start_CPU) / CLOCKS_PER_SEC << std::endl;
 
 
 

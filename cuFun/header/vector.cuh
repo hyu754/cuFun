@@ -6,11 +6,12 @@
 #include <cuda_runtime.h>
 #include "cublas_v2.h"
 #include "matrix.cuh"
-
+#include "cuFun.cuh"
 
 
 namespace cuFun
 {
+
 	namespace cuMat
 	{
 		
@@ -143,13 +144,13 @@ void cuFun::cuMat::vect<T>::host_to_device(){
 	size_t length_ = vector_host.length;
 	//first allocate cuda vector
 	allocate_cuda_memory();
-	T * temp_array = new T[length_];
+	/*T * temp_array = new T[length_];
 	for (size_t _i = 0; _i < length_; _i++){
 		temp_array[_i] = vector_host.elements[_i];
-	}
+	}*/
 	cudaMemcpy(array_device,vector_host.elements, sizeof(T)*length_, cudaMemcpyHostToDevice);
 
-	delete[] temp_array;
+	//delete[] temp_array;
 }
 
 template<class T>
@@ -174,10 +175,10 @@ cuFun::cuMat::vect<T>::~vect(){
 
 template<typename T>
 void cpuVectAdd(cuFun::cuMat::vect<T>  &a, cuFun::cuMat::vect<T>   b, cuFun::cuMat::vect<T>    c){
-	/*if (b.vector_host.length != c.vector_host.length){
-	std::cout << "Error vectors must be the same size " << std::endl;
-	abort();
-	}*/
+	if (b.vector_host.length != c.vector_host.length){
+		std::cout << "Error, vectors must be the same size " << std::endl;
+		abort();
+	}
 
 	size_t  _length = b.return_length();
 	for (size_t i = 0; i < _length; i++){
@@ -190,7 +191,7 @@ void cpuVectAdd(cuFun::cuMat::vect<T>  &a, cuFun::cuMat::vect<T>   b, cuFun::cuM
 template<typename T>
 void cudaVectAdd(cuFun::cuMat::vect<T> &vec_a, cuFun::cuMat::vect<T> vec_b, size_t n){
 
-	size_t threads = 1024;
+	size_t threads = CUDA_THREADS;
 	size_t blocks = ((threads + n + 1) / threads);
 
 
@@ -209,7 +210,7 @@ void cudaVectAdd(cuFun::cuMat::vect<T> &vec_a, cuFun::cuMat::vect<T> vec_b, size
 template<typename T>
 void cudaVectAdd(cuFun::cuMat::vect<T> &vec_a, cuFun::cuMat::vect<T> vec_b, cuFun::cuMat::vect<T> vec_c, size_t n){
 
-	size_t threads = 1024;
+	size_t threads = CUDA_THREADS;
 	size_t blocks = (threads + n + 1) / threads;
 
 
@@ -244,7 +245,7 @@ void cudaVectAdd_cublas(cublasHandle_t handle, cuFun::cuMat::vect<T> &vec_a, cuF
 
 
 /*
-Vector add routines
+Vector add cuda routines
 */
 //CUDA
 template<typename T>

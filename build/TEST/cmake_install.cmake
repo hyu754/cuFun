@@ -1,8 +1,8 @@
-# Install script for directory: D:/GitHub/cuFun/TEST
+# Install script for directory: C:/Users/David Yu/Documents/GitHub/cuFun/TEST
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files/cuFun")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/cuFun")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\GitHub\cuFun\TEST\test_cuMat.cpp">
+    <ClCompile Include="C:\Users\David Yu\Documents\GitHub\cuFun\TEST\test_cuMat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\GitHub\cuFun\TEST\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\David Yu\Documents\GitHub\cuFun\TEST\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{AAF7CB23-089C-39F1-8C6A-D5392D2AFD38}</UniqueIdentifier>
+      <UniqueIdentifier>{8AD9B2D3-6985-36E3-90E1-59B7278AB020}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

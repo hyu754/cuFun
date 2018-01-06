@@ -1,18 +1,20 @@
-﻿  Building NVCC (Device) object cuFun/CMakeFiles/cuFun_lib.dir/source/Debug/cuFun_lib_generated_matrix.cu.obj
-  matrix.cu
-  
-  matrix.cu
-  
-  Building NVCC (Device) object cuFun/CMakeFiles/cuFun_lib.dir/source/Debug/cuFun_lib_generated_vector.cu.obj
-  vector.cu
-  
-  vector.cu
-  
-D:/GitHub/cuFun/cuFun/source/vector.cu(29): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
-  
-D:/GitHub/cuFun/cuFun/source/vector.cu(35): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
-  
-  vector.cpp
-cuFun_lib_generated_matrix.cu.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-cuFun_lib_generated_dnnFun.cu.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-  cuFun_lib.vcxproj -> D:\GitHub\cuFun\build\cuFun\Debug\cuFun_lib.lib
+﻿Build started 5/01/2018 7:54:08 PM.
+     1>Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\cuFun_lib.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Building NVCC (Device) object cuFun/CMakeFiles/cuFun_lib.dir/source/Debug/cuFun_lib_generated_matrix.cu.obj
+         matrix.cu
+         
+         matrix.cu
+         
+       Lib:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\Debug\cuFun_lib.lib" /NOLOGO  /machine:X86 cuFun_lib.dir\Debug\vector.obj
+         "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\CMakeFiles\cuFun_lib.dir\source\Debug\cuFun_lib_generated_dnnFun.cu.obj"
+         "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\CMakeFiles\cuFun_lib.dir\source\Debug\cuFun_lib_generated_matrix.cu.obj"
+         "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\CMakeFiles\cuFun_lib.dir\source\Debug\cuFun_lib_generated_vector.cu.obj"
+     1>cuFun_lib_generated_dnnFun.cu.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+         cuFun_lib.vcxproj -> C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\Debug\cuFun_lib.lib
+     1>Done Building Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\cuFun_lib.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.17

@@ -1,5 +1,5 @@
-D:/GitHub/cuFun/build/CMakeFiles/ALL_BUILD.dir
-D:/GitHub/cuFun/build/CMakeFiles/ZERO_CHECK.dir
-D:/GitHub/cuFun/build/cuFun/CMakeFiles/cuFun_lib.dir
-D:/GitHub/cuFun/build/TEST/CMakeFiles/test_cuMat.dir
-D:/GitHub/cuFun/build/TEST/CMakeFiles/ALL_BUILD.dir
+C:/Users/David Yu/Documents/GitHub/cuFun/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/David Yu/Documents/GitHub/cuFun/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/David Yu/Documents/GitHub/cuFun/build/cuFun/CMakeFiles/cuFun_lib.dir
+C:/Users/David Yu/Documents/GitHub/cuFun/build/TEST/CMakeFiles/test_cuMat.dir
+C:/Users/David Yu/Documents/GitHub/cuFun/build/TEST/CMakeFiles/ALL_BUILD.dir
