@@ -1,4 +1,4 @@
-﻿Build started 5/01/2018 7:54:13 PM.
+﻿Build started 6/01/2018 7:52:39 PM.
      1>Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\TEST\test_cuMat.vcxproj" on node 2 (Build target(s)).
      1>Link:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\David Yu\Documents\GitHub\cuFun\build\TEST\Debug\test_cuMat.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v8.0/lib/x64" /LIBPATH:"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v8.0/lib/x64/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib ..\cuFun\Debug\cuFun_lib.lib cudart.lib "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\lib\Win32\cudart_static.lib" cudart.lib cublas.lib cusparse.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/David Yu/Documents/GitHub/cuFun/build/TEST/Debug/test_cuMat.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/David Yu/Documents/GitHub/cuFun/build/TEST/Debug/test_cuMat.lib" /MACHINE:X86 /SAFESEH  /machine:X86 test_cuMat.dir\Debug\test_cuMat.obj
@@ -8,4 +8,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.91
+Time Elapsed 00:00:00.54

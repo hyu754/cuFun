@@ -26,7 +26,8 @@ cuda_matAdd_global2(T * a, const T * b, const T* c, size_t num_rows, size_t num_
 
 void cuda_MatAdd(float * a, const float * b, const float * c, size_t blocks, size_t threads, size_t num_rows, size_t num_cols){
 
-	dim3 dimBlock(CUDA_THREADS, CUDA_THREADS);
-	dim3 dimGrid((CUDA_THREADS + num_rows + 1) / CUDA_THREADS, (CUDA_THREADS + num_cols + 1) / CUDA_THREADS);
-	cuda_matAdd_global2 << <dimGrid, dimBlock >> >(a, b, c, num_rows, num_cols);
+	dim3 dimBlock(512, 512);
+	dim3 dimGrid((512 + num_rows + 1) / 512, (512 + num_cols + 1) / 512);
+	//cuda_matAdd_global2 << <dimGrid, dimBlock >> >(a, b, c, num_rows, num_cols);
+	cuda_matAdd_global << <threads, blocks >> >(a, b, c, num_rows, num_cols);
 }

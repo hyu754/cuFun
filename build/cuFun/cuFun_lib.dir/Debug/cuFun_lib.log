@@ -1,4 +1,4 @@
-﻿Build started 5/01/2018 7:54:08 PM.
+﻿Build started 6/01/2018 7:52:34 PM.
      1>Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\cuFun_lib.vcxproj" on node 2 (Build target(s)).
      1>CustomBuild:
          Building NVCC (Device) object cuFun/CMakeFiles/cuFun_lib.dir/source/Debug/cuFun_lib_generated_matrix.cu.obj
@@ -17,4 +17,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.17
+Time Elapsed 00:00:04.92
