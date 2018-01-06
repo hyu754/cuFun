@@ -1,11 +1,26 @@
-﻿Build started 6/01/2018 7:52:34 PM.
-     1>Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\cuFun_lib.vcxproj" on node 2 (Build target(s)).
+﻿Build started 6/01/2018 8:03:20 PM.
+     1>Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\cuFun_lib.vcxproj" on node 2 (Rebuild target(s)).
      1>CustomBuild:
+         Building NVCC (Device) object cuFun/CMakeFiles/cuFun_lib.dir/source/Debug/cuFun_lib_generated_dnnFun.cu.obj
+         dnnFun.cu
+         
+         dnnFun.cu
+         
          Building NVCC (Device) object cuFun/CMakeFiles/cuFun_lib.dir/source/Debug/cuFun_lib_generated_matrix.cu.obj
          matrix.cu
          
          matrix.cu
          
+         Building NVCC (Device) object cuFun/CMakeFiles/cuFun_lib.dir/source/Debug/cuFun_lib_generated_vector.cu.obj
+         vector.cu
+         
+         vector.cu
+         
+         Building Custom Rule C:/Users/David Yu/Documents/GitHub/cuFun/cuFun/CMakeLists.txt
+         CMake does not need to re-run because C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\David Yu\Documents\GitHub\cuFun\cuFun\header" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" /I"C:\Users\David Yu\Documents\GitHub\cuFun\include\Eigen" /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cuFun_lib.dir\Debug\\" /Fd"cuFun_lib.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "C:\Users\David Yu\Documents\GitHub\cuFun\cuFun\source\vector.cpp"
+         vector.cpp
        Lib:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\Debug\cuFun_lib.lib" /NOLOGO  /machine:X86 cuFun_lib.dir\Debug\vector.obj
          "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\CMakeFiles\cuFun_lib.dir\source\Debug\cuFun_lib_generated_dnnFun.cu.obj"
@@ -13,8 +28,8 @@
          "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\CMakeFiles\cuFun_lib.dir\source\Debug\cuFun_lib_generated_vector.cu.obj"
      1>cuFun_lib_generated_dnnFun.cu.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
          cuFun_lib.vcxproj -> C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\Debug\cuFun_lib.lib
-     1>Done Building Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\cuFun_lib.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\cuFun\cuFun_lib.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.92
+Time Elapsed 00:00:14.49

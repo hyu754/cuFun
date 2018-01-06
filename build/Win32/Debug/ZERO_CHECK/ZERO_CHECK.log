@@ -1,17 +1,12 @@
-﻿Build started 5/01/2018 5:33:27 PM.
-     1>Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\ZERO_CHECK.vcxproj" on node 2 (Build target(s)).
+﻿Build started 6/01/2018 8:03:20 PM.
+     1>Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\ZERO_CHECK.vcxproj" on node 2 (Rebuild target(s)).
      1>CustomBuild:
          Checking Build System
          CMake does not need to re-run because C:/Users/David Yu/Documents/GitHub/cuFun/build/CMakeFiles/generate.stamp is up-to-date.
-         CMake is re-running because C:/Users/David Yu/Documents/GitHub/cuFun/build/cuFun/CMakeFiles/generate.stamp is out-of-date.
-           the file 'C:/Users/David Yu/Documents/GitHub/cuFun/build/cuFun/CMakeFiles/cuFun_lib.dir/source/cuFun_lib_generated_vector.cu.obj.depend'
-           is newer than 'C:/Users/David Yu/Documents/GitHub/cuFun/build/cuFun/CMakeFiles/generate.stamp.depend'
-           result='-1'
-         -- Configuring done
-         -- Generating done
-         -- Build files have been written to: C:/Users/David Yu/Documents/GitHub/cuFun/build
-     1>Done Building Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\ZERO_CHECK.vcxproj" (Build target(s)).
+         CMake does not need to re-run because C:/Users/David Yu/Documents/GitHub/cuFun/build/cuFun/CMakeFiles/generate.stamp is up-to-date.
+         CMake does not need to re-run because C:/Users/David Yu/Documents/GitHub/cuFun/build/TEST/CMakeFiles/generate.stamp is up-to-date.
+     1>Done Building Project "C:\Users\David Yu\Documents\GitHub\cuFun\build\ZERO_CHECK.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.73
+Time Elapsed 00:00:00.37
